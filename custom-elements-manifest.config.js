@@ -11,8 +11,8 @@ governing permissions and limitations under the License.
 */
 
 export default {
-    globs: ['**/*.ts'],
-    exclude: ['**/*.d.ts', '**/stories/**', '**/test/**'],
+    globs: ['**/*.js'],
+    exclude: ['**/stories/**', '**/test/**'],
     outdir: '.',
     litelement: true,
 };
