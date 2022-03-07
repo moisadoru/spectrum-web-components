@@ -163,3 +163,9 @@ export function SpectrumMixin<T extends Constructor<ReactiveElement>>(
 }
 
 export class SpectrumElement extends SpectrumMixin(LitElement) {}
+
+if (window.__SWC_DEBUG__) {
+    console.warn(
+        'Spectrum Web Components is in dev mode. Not recommended for production! See (FUTURE URL) for more information.'
+    );
+}

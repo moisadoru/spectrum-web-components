@@ -11,9 +11,9 @@ governing permissions and limitations under the License.
 */
 import { html, TemplateResult } from '@spectrum-web-components/base';
 
-import { MenuGroup } from '..';
-import '../sp-menu.js';
-import '../sp-menu-divider.js';
+import { MenuGroup } from '@spectrum-web-components/menu';
+import '@spectrum-web-components/menu/sp-menu.js';
+import '@spectrum-web-components/menu/sp-menu-divider.js';
 import '@spectrum-web-components/popover/sp-popover.js';
 import '@spectrum-web-components/menu/sp-menu.js';
 import '@spectrum-web-components/menu/sp-menu-item.js';
@@ -65,14 +65,13 @@ export const mixed = (): TemplateResult => {
                 decoration = value;
                 break;
         }
-        (document.querySelector(
-            '#output'
-        ) as HTMLElement).textContent = styleRules({
-            style,
-            weight,
-            color,
-            decoration,
-        });
+        (document.querySelector('#output') as HTMLElement).textContent =
+            styleRules({
+                style,
+                weight,
+                color,
+                decoration,
+            });
     };
     return html`
         <style>

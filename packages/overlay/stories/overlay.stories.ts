@@ -17,7 +17,7 @@ import {
     OverlayTrigger,
     Placement,
     VirtualTrigger,
-} from '../';
+} from '@spectrum-web-components/overlay';
 import '@spectrum-web-components/action-button/sp-action-button.js';
 import '@spectrum-web-components/action-group/sp-action-group.js';
 import '@spectrum-web-components/button/sp-button.js';
