@@ -15,9 +15,31 @@ const config = {
     components: [
         {
             name: 'table',
-            host: {
-                selector: '.spectrum-Table',
-            },
+            host: '.spectrum-Table',
+            attributes: [
+                {
+                    type: 'enum',
+                    name: 'size',
+                    values: [
+                        {
+                            name: 's',
+                            selector: '.spectrum-Table--sizeS',
+                        },
+                        {
+                            name: 'm',
+                            selector: '.spectrum-Table--sizeM',
+                        },
+                        {
+                            name: 'l',
+                            selector: '.spectrum-Table--sizeL',
+                        },
+                        {
+                            name: 'xl',
+                            selector: '.spectrum-Table--sizeXL',
+                        },
+                    ],
+                },
+            ],
         },
     ],
 };

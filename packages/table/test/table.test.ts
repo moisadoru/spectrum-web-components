@@ -10,10 +10,10 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { fixture, elementUpdated, expect, html } from '@open-wc/testing';
+import { elementUpdated, expect, fixture, html } from '@open-wc/testing';
 
 import '../sp-table.js';
-import { Table } from '..';
+import type { Table } from '../src/index.js';
 
 describe('Table', () => {
     it('loads default table accessibly', async () => {

@@ -21,10 +21,16 @@
     "type": "module",
     "exports": {
         ".": "./src/index.js",
-        "./src/*": "./src/*.js",
+        "./src/*": "./src/*",
         "./package.json": "./package.json",
         "./sp-table": "./sp-table.js",
-        "./sp-table.js": "./sp-table.js"
+        "./sp-table.js": "./sp-table.js",
+        "./sp-cell": "./sp-cell.js",
+        "./sp-cell.js": "./sp-cell.js",
+        "./sp-head-cell": "./sp-head-cell.js",
+        "./sp-head-cell.js": "./sp-head-cell.js",
+        "./sp-row": "./sp-row.js",
+        "./sp-row.js": "./sp-row.js"
     },
     "scripts": {
         "test": "echo \"Error: run tests from mono-repo root.\" && exit 1"
@@ -44,11 +50,11 @@
         "lit-html"
     ],
     "dependencies": {
-        "@spectrum-web-components/base": "^0.4.4",
+        "@spectrum-web-components/base": "^0.5.4",
         "tslib": "^2.0.0"
     },
     "devDependencies": {
-        "@spectrum-css/table": "^3.0.3"
+        "@spectrum-css/table": "^4.0.13"
     },
     "types": "./src/index.d.ts",
     "customElementsManifest": "custom-elements.json",

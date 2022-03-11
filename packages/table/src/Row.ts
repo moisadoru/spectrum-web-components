@@ -12,10 +12,10 @@ governing permissions and limitations under the License.
 
 import {
     html,
-    queryAssignedNodes,
     SpectrumElement,
     TemplateResult,
 } from '@spectrum-web-components/base';
+import { queryAssignedNodes } from '@spectrum-web-components/base/src/decorators.js';
 import { Cell } from './Cell';
 
 /**

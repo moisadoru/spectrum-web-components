@@ -12,11 +12,13 @@ governing permissions and limitations under the License.
 
 import {
     html,
-    property,
-    query,
     SpectrumElement,
     TemplateResult,
 } from '@spectrum-web-components/base';
+import {
+    property,
+    query,
+} from '@spectrum-web-components/base/src/decorators.js';
 
 export type HeadCellOrder = 'ascending' | 'descending';
 

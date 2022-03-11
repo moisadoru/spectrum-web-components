@@ -11,15 +11,20 @@ governing permissions and limitations under the License.
 */
 
 import {
+    CSSResultGroup,
     html,
+    SizedMixin,
     SpectrumElement,
-    CSSResultArray,
     TemplateResult,
-    queryAssignedNodes,
-    classMap,
-    property,
-    ifDefined,
 } from '@spectrum-web-components/base';
+import {
+    property,
+    queryAssignedNodes,
+} from '@spectrum-web-components/base/src/decorators.js';
+import {
+    classMap,
+    ifDefined,
+} from '@spectrum-web-components/base/src/directives.js';
 
 import styles from './table.css.js';
 import { HeadCell, HeadCellOrder } from './HeadCell';
@@ -46,8 +51,8 @@ export type TableData = ReadonlyArray<RowData>;
 /**
  * @element sp-table
  */
-export class Table extends SpectrumElement {
-    public static get styles(): CSSResultArray {
+export class Table extends SizedMixin(SpectrumElement) {
+    public static get styles(): CSSResultGroup {
         return [styles];
     }
 
