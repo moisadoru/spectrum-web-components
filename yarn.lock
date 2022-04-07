@@ -16912,7 +16912,7 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
-pixelmatch@^5.2.1:
+pixelmatch@5.2.1, pixelmatch@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/pixelmatch/-/pixelmatch-5.2.1.tgz#9e4e4f4aa59648208a31310306a5bed5522b0d65"
   integrity sha512-WjcAdYSnKrrdDdqTcVEY7aB7UhhwjYQKYhHiBXdJef0MOaQeYpUdQ+iVyBLa5YBKS8MPVPPMX7rpOByISLpeEQ==
@@ -16956,17 +16956,19 @@ pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
-playwright-core@1.19.2:
-  version "1.19.2"
-  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.19.2.tgz#90b9209554f174c649abf495952fcb4335437218"
-  integrity sha512-OsL3sJZIo1UxKNWSP7zW7sk3FyUGG06YRHxHeBw51eIOxTCQRx5t+hXd0cvXashN2CHnd3hIZTs2aKa/im4hZQ==
+playwright-core@1.21.0:
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.21.0.tgz#1b68e87f4fd2fc5653def1e61ccdef6845c604a6"
+  integrity sha512-yDGVs9qaaW6WiefgR7wH1CGt9D6D/X4U3jNpIzH0FjjrrWLCOYQo78Tu3SkW8X+/kWlBpj49iWf3QNSxhYc12Q==
   dependencies:
+    colors "1.4.0"
     commander "8.3.0"
     debug "4.3.3"
     extract-zip "2.0.1"
     https-proxy-agent "5.0.0"
     jpeg-js "0.4.3"
     mime "3.0.0"
+    pixelmatch "5.2.1"
     pngjs "6.0.0"
     progress "2.0.3"
     proper-lockfile "4.1.2"
@@ -16978,12 +16980,12 @@ playwright-core@1.19.2:
     yauzl "2.10.0"
     yazl "2.5.1"
 
-playwright@^1.14.0, playwright@^1.19.2:
-  version "1.19.2"
-  resolved "https://registry.yarnpkg.com/playwright/-/playwright-1.19.2.tgz#d9927ae8512482642356e50a286c5767dfb7a621"
-  integrity sha512-2JmGWr/Iw/Uu27bZULeHgjn8doNrRVxIYdhspMuMlfKNpzwAe/sfm7wH8uey6jiZxnPL4bC5V4ACQcF4dAGWnw==
+playwright@1.21.0, playwright@^1.14.0, playwright@^1.21.0:
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/playwright/-/playwright-1.21.0.tgz#375a2a6419070e59d7e7f24ce4e7150afbbff9f1"
+  integrity sha512-OH5ZFoiS0HkBZzhb7HPVeE8lEx3PO/AaKgoQfgs1NbmwFPqHgPzfKFa3fO+VM27WqTLjtYOL6hM03sWnJhT3ig==
   dependencies:
-    playwright-core "1.19.2"
+    playwright-core "1.21.0"
 
 please-upgrade-node@^3.2.0:
   version "3.2.0"

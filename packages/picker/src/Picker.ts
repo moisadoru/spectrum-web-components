@@ -271,7 +271,7 @@ export class PickerBase extends SizedMixin(Focusable) {
             this.restoreChildren = undefined;
         }
 
-        this.menuStateResolver();
+        requestAnimationFrame(() => this.menuStateResolver());
     }
 
     private popoverFragment!: DocumentFragment;
@@ -532,12 +532,6 @@ export class PickerBase extends SizedMixin(Focusable) {
 
     protected updated(changedProperties: PropertyValues): void {
         super.updated(changedProperties);
-        if (
-            changedProperties.has('value') &&
-            !changedProperties.has('selectedItem')
-        ) {
-            this.updateMenuItems();
-        }
         if (changedProperties.has('disabled') && this.disabled) {
             this.open = false;
         }
@@ -554,9 +548,19 @@ export class PickerBase extends SizedMixin(Focusable) {
                 this.closeMenu();
             }
         }
+        if (
+            changedProperties.has('value') &&
+            !changedProperties.has('selectedItem')
+        ) {
+            this.updateMenuItems();
+        }
     }
 
-    protected manageSelection(): void {
+    protected async manageSelection(): Promise<void> {
+        await this.menuStatePromise;
+        this.selectionPromise = new Promise(
+            (res) => (this.selectionResolver = res)
+        );
         let selectedItem: MenuItem | undefined;
         this.menuItems.forEach((item) => {
             if (this.value === item.value && !item.disabled) {
@@ -573,19 +577,22 @@ export class PickerBase extends SizedMixin(Focusable) {
             this.selectedItem = undefined;
         }
         if (this.open) {
-            this.optionsMenu.updateComplete.then(() => {
-                this.optionsMenu.updateSelectedItemIndex();
-            });
+            await this.optionsMenu.updateComplete;
+            this.optionsMenu.updateSelectedItemIndex();
         }
+        this.selectionResolver();
     }
 
     private menuStatePromise = Promise.resolve();
     private menuStateResolver!: () => void;
+    private selectionPromise = Promise.resolve();
+    private selectionResolver!: () => void;
 
     protected async getUpdateComplete(): Promise<boolean> {
         const complete = (await super.getUpdateComplete()) as boolean;
         await this.menuStatePromise;
         await this.itemsUpdated;
+        await this.selectionPromise;
         return complete;
     }
 
