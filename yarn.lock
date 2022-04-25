@@ -4045,6 +4045,11 @@
   resolved "https://registry.yarnpkg.com/@spectrum-css/stepper/-/stepper-3.0.22.tgz#3bf040d803153abe1ce6e968186bb86f96dbf01f"
   integrity sha512-zWWqZEDX/dFwl3OJfg9HcNMRIBlMifxe6+U2r+3H0wem1zf+o/clH+TaLIAl+E5Fd+ZB9hlLH8X7i5rjUEZMNQ==
 
+"@spectrum-css/swatch@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-css/swatch/-/swatch-1.1.0.tgz#76106f627eeffb91082ebcf028f06d793c63f7ec"
+  integrity sha512-cbBK6lQl0anxiQKDpwwNwV33I4Vki1QfHJe5STkMG/xxymZVM0pCwcap7D8xOSrbEL3RyeO9BfmURzrgRPqbAw==
+
 "@spectrum-css/switch@^1.0.19":
   version "1.0.19"
   resolved "https://registry.yarnpkg.com/@spectrum-css/switch/-/switch-1.0.19.tgz#04cfc3ce8ccabfbf8c83dad8ba7db13513d61037"
