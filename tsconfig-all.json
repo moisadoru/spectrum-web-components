@@ -70,6 +70,7 @@
         { "path": "packages/status-light" },
         { "path": "packages/styles" },
         { "path": "packages/switch" },
+        { "path": "packages/table" },
         { "path": "packages/tabs" },
         { "path": "packages/tags" },
         { "path": "packages/textfield" },
