@@ -44,6 +44,7 @@
         "lit-html"
     ],
     "dependencies": {
+        "@lit-labs/observers": "^1.0.1",
         "@spectrum-web-components/action-button": "^0.8.3",
         "@spectrum-web-components/base": "^0.5.5",
         "@spectrum-web-components/reactive-controllers": "^0.2.2",
