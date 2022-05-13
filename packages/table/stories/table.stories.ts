@@ -146,7 +146,6 @@ class VirtualTable extends SpectrumElement {
 
                     // const items = [...this.items];
                     // this.items = items.reverse();
-                    // console.log(this.items);
                 }}
             >
                 <sp-table-head>
