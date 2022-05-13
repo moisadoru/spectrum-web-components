@@ -31,9 +31,11 @@ export class TableHead extends SpectrumElement {
     @property({ reflect: true })
     public role = 'row';
 
+    public childCells = [] as TableHeadCell[];
+
     private handleSorted({ target }: Event): void {
-        const headCells = [...this.children] as TableHeadCell[];
-        headCells.forEach((cell) => {
+        const childCells = [...this.children] as TableHeadCell[];
+        childCells.forEach((cell) => {
             if (cell !== target) {
                 cell.sorted = undefined;
             }
