@@ -203,6 +203,77 @@ const template = ({
 
 export const Default = (args: Properties): TemplateResult => template(args);
 
+export const doubleTrigger = ({
+    placement,
+    offset,
+    open,
+    type,
+}: Properties): TemplateResult => html`
+    ${storyStyles}
+    <overlay-trigger
+        id="trigger"
+        placement="${placement}"
+        offset="${offset}"
+        open=${ifDefined(open)}
+        type=${ifDefined(type)}
+    >
+        <overlay-trigger
+            id="trigger"
+            placement="${placement}"
+            offset="${offset}"
+            open=${ifDefined(open)}
+            type=${ifDefined(type)}
+            slot="trigger"
+        >
+            <sp-button variant="primary" slot="trigger">Show Popover</sp-button>
+            <sp-popover
+                dialog
+                slot="click-content"
+                placement="${placement}"
+                tip
+            >
+                <div class="options-popover-content">
+                    <sp-slider
+                        value="5"
+                        step="0.5"
+                        min="0"
+                        max="20"
+                        label="Awesomeness"
+                    ></sp-slider>
+                    <div id="styled-div">
+                        The background of this div should be blue
+                    </div>
+                    <overlay-trigger id="inner-trigger" placement="bottom">
+                        <sp-button slot="trigger">Press Me</sp-button>
+                        <sp-popover
+                            dialog
+                            slot="click-content"
+                            placement="bottom"
+                            tip
+                            open
+                        >
+                            <div class="options-popover-content">
+                                Another Popover
+                            </div>
+                        </sp-popover>
+
+                        <sp-tooltip slot="hover-content" delayed tip="bottom">
+                            Click to open another popover.
+                        </sp-tooltip>
+                    </overlay-trigger>
+                </div>
+            </sp-popover>
+        </overlay-trigger>
+        <sp-tooltip
+            slot="hover-content"
+            ?delayed=${open !== 'hover'}
+            tip="bottom"
+        >
+            Click to open a popover.
+        </sp-tooltip>
+    </overlay-trigger>
+`;
+
 export const openHoverContent = (args: Properties): TemplateResult =>
     template({
         ...args,
