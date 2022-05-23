@@ -15,23 +15,15 @@ import {
     SpectrumElement,
     TemplateResult,
 } from '@spectrum-web-components/base';
-import {
-    property /*queryAssignedNodes */,
-} from '@spectrum-web-components/base/src/decorators.js';
+import { property } from '@spectrum-web-components/base/src/decorators.js';
 
 import styles from './table.css.js';
-import { TableHeadCell } from './TableHeadCell.js';
-// import { RovingTabindexController } from '@spectrum-web-components/reactive-controllers/src/RovingTabindex.js';
+import type { TableHeadCell } from './TableHeadCell.js';
 
 /**
  * @element sp-table
  */
 
-export interface ChildCell {
-    tableCell: TableHeadCell;
-    focusable: boolean;
-    focusRoot: Table;
-}
 export class Table extends SpectrumElement {
     public static get styles(): CSSResultArray {
         return [styles];
@@ -40,36 +32,16 @@ export class Table extends SpectrumElement {
     @property({ reflect: true })
     public role = 'grid';
 
-    // @queryAssignedNodes()
-    // private defaultNodes!: NodeListOf<TableHeadCell>;
+    public childCells = [];
 
-    // private get headCells(): TableHeadCell[] {
-    //     return [...(this.defaultNodes || [])].filter(
-    //         (node: HTMLElement) => typeof node.tagName !== 'undefined'
-    //     ) as TableHeadCell[];
-    // }
-
-    // private rovingTabIndexController = new RovingTabindexController<TableHeadCell>(
-    //     this,
-    //     {
-    //         focusInIndex: (elements: TableHeadCell[]) => {
-    //             return elements.findIndex((el) => {
-    //                 return el.sortable;
-    //             })
-    //         },
-    //         direction: 'grid',
-    //         elements: () => this.headCells,
-    //         isFocusableElement: (el: TableHeadCell) => el.sortable,
-    //     }
-    // );
-
-    // public focus(): void {
-    //     this.rovingTabIndexController.focus();
-    // }
-
-    // private handleSlotchange(): void {
-    //     this.rovingTabIndexController.clearElementCache();
-    // }
+    public focus(): void {
+        const sortableHeadCell = this.querySelector(
+            'sp-table-head-cell[sortable]'
+        ) as TableHeadCell;
+        if (sortableHeadCell) {
+            sortableHeadCell.focus();
+        }
+    }
 
     protected render(): TemplateResult {
         return html`

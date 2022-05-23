@@ -21,6 +21,7 @@ import { Table } from '../';
 import { elements, virtualized } from '../stories/table.stories.js';
 import { TableHeadCell } from '../src/TableHeadCell.js';
 import { sendKeys } from '@web/test-runner-commands';
+// import { TableBody } from '../src/TableBody.js';
 
 let globalErrorHandler: undefined | OnErrorEventHandler = undefined;
 before(function () {
@@ -80,7 +81,7 @@ describe('Table', () => {
         expect(secondSortable === test.shadowRoot?.activeElement).to.be.true;
     });
 
-    it('does not tab stop on `<sp-table-head-cell>`s', async () => {
+    it('does not tab stop on non-sortable `<sp-table-head-cell>`s', async () => {
         const input = document.createElement('input');
         const test = await fixture<HTMLElement>(virtualized());
         const el = test.shadowRoot?.querySelector('sp-table') as Table;
@@ -99,6 +100,9 @@ describe('Table', () => {
         const thirdHeadCell = el.querySelector(
             'sp-table-head-cell:nth-of-type(3)'
         ) as TableHeadCell;
+        // const tableBody = el.querySelector(
+        //     'sp-table-body'
+        // ) as TableBody;
 
         await sendKeys({
             press: 'Tab',
@@ -114,9 +118,12 @@ describe('Table', () => {
             press: 'Tab',
         });
         expect(thirdHeadCell === test.shadowRoot?.activeElement).to.be.false;
+        // Passes on firefox only, not sure why... Scrollable content should
+        // recieve tabstop. TableBody should be scrollable.
+        // expect(tableBody === test.shadowRoot?.activeElement).to.be.true;
     });
 
-    xit('can be focus()ed from the `<sp-table>`', async () => {
+    it('can be focus()ed from the `<sp-table>`', async () => {
         const input = document.createElement('input');
         const test = await fixture<HTMLElement>(virtualized());
         const el = test.shadowRoot?.querySelector('sp-table') as Table;
